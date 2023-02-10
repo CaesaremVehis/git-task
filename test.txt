@@ -1,1 +1,2 @@
 This git contains all my study tasks
+Now i trying to commit changes in test brunch
