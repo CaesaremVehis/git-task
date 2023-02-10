@@ -1,0 +1,448 @@
+Index: .idea/git-task.iml
+===================================================================
+diff --git a/.idea/git-task.iml b/.idea/git-task.iml
+deleted file mode 100644
+--- a/.idea/git-task.iml	
++++ /dev/null	
+@@ -1,9 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/modules.xml
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	
++++ /dev/null	
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/git-task.iml" filepath="$PROJECT_DIR$/.idea/git-task.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	(date 1676014232991)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: GuessGame/src/GameLauncher.java
+===================================================================
+diff --git a/GuessGame/src/GameLauncher.java b/GuessGame/src/GameLauncher.java
+deleted file mode 100644
+--- a/GuessGame/src/GameLauncher.java	
++++ /dev/null	
+@@ -1,63 +0,0 @@
+-import java.util.Arrays;
+-import java.util.HashSet;
+-import java.util.NoSuchElementException;
+-import java.util.Scanner;
+-
+-public class GameLauncher{
+-    public static void main(String[] args) {//        Choosing game
+-        while (true) {
+-            System.out.println("Выберите игру: ");
+-            System.out.println("Нажмите 1, чтобы сыграть в угадайку");
+-            System.out.println("Нажмите 2, чтобы сыграть в кости");
+-            int number = Tech.consoleInt();
+-            if (number == 1) {
+-                GuessGame game = new GuessGame();
+-                game.startGame();
+-                break;
+-            }/* else if (number == 2) {
+-                DiceGame game = new DiceGame();
+-                game.startDiceGame();
+-                break;
+-            }*/ else {
+-                System.out.println("Введите 1 или 2");
+-            }
+-        }
+-    }
+-    public static boolean repeat(){ //       ask the user to repeat the game
+-        System.out.println("Сыграть еще раз?");
+-//        Create two Sets with right ans.
+-        HashSet<String> ansYes = new HashSet<>(){{
+-            add("д");
+-            add("дд");
+-            add("да");
+-            add("yes");
+-            add("y");
+-            add("yy");
+-            add("ok");
+-            add("yep");
+-        }};
+-        HashSet<String> ansNo = new HashSet<>(){{
+-            add("н");
+-            add("нет");
+-            add("не");
+-            add("no");
+-            add("not");
+-            add("n");
+-            add("nn");
+-            add("nope");
+-            add("неть");
+-        }};
+-
+-        Scanner console = new Scanner(System.in); //ask the user for  his answer
+-        do {
+-            String hasRepeat = console.nextLine();
+-            if (ansYes.contains(hasRepeat)) {
+-                return true;
+-            } else if (ansNo.contains(hasRepeat)) {
+-                return false;
+-            }
+-                System.out.println("Ответ непонятен, повторите");
+-        }
+-        while (true);
+-    }
+-}
+\ No newline at end of file
+Index: GuessGame/src/DiceGame.java
+===================================================================
+diff --git a/GuessGame/src/DiceGame.java b/GuessGame/src/DiceGame.java
+deleted file mode 100644
+--- a/GuessGame/src/DiceGame.java	
++++ /dev/null	
+@@ -1,48 +0,0 @@
+-import java.util.Scanner;
+-
+-/**
+- *The <b>class</b> contents dice game. There is only 1 method in the class.
+- */
+-
+-public class DiceGame {
+-    /**
+-     * Method completes full game cycle
+-     */
+-    public void startDiceGame() {
+-        /**
+-         * Introduce the players
+-         * */
+-//       Player  p1 = new Player();
+-//       Player p2 = new Player();
+-//        p1.meet(1);
+-//        p2.meet(2);
+-
+-        boolean hasRepeat=true;
+-        while(hasRepeat == true){
+-/**
+- *  Create a dice roll
+- */
+-//        int p1Result = rollDice.roll(p1);
+-//        int p2Result = rollDice.roll(p2);
+-            System.out.println();
+-/**
+- *  Choose the winner
+- */
+-//           if(p1Result==p2Result) {
+-//               System.out.println("Игроки выбросили одинаковые значения. Бросьте кубики заново");
+-//           }
+-//           else if(p1Result>p2Result){
+-//               System.out.println(p1.name+" победил(а), выбросив "+p1Result+" очков");
+-//           }
+-//           else{
+-//               System.out.println(p2.name+" победил(а), выбросив "+p2Result+" очков");
+-//           }
+-/**
+- *  Ask the user to repeat the game
+- */
+-           hasRepeat = GameLauncher.repeat();
+-
+-        }
+-    }
+-}
+-
+Index: GuessGame/.idea/uiDesigner.xml
+===================================================================
+diff --git a/GuessGame/.idea/uiDesigner.xml b/GuessGame/.idea/uiDesigner.xml
+deleted file mode 100644
+--- a/GuessGame/.idea/uiDesigner.xml	
++++ /dev/null	
+@@ -1,124 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Palette2">
+-    <group name="Swing">
+-      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+-        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
+-      </item>
+-      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+-        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
+-      </item>
+-      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+-        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
+-      </item>
+-      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
+-        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
+-      </item>
+-      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
+-        <initial-values>
+-          <property name="text" value="Button" />
+-        </initial-values>
+-      </item>
+-      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
+-        <initial-values>
+-          <property name="text" value="RadioButton" />
+-        </initial-values>
+-      </item>
+-      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
+-        <initial-values>
+-          <property name="text" value="CheckBox" />
+-        </initial-values>
+-      </item>
+-      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+-        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
+-        <initial-values>
+-          <property name="text" value="Label" />
+-        </initial-values>
+-      </item>
+-      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+-        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+-          <preferred-size width="150" height="-1" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+-        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+-          <preferred-size width="150" height="-1" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+-        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+-          <preferred-size width="150" height="-1" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+-        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+-          <preferred-size width="150" height="50" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+-        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+-          <preferred-size width="150" height="50" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+-        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+-          <preferred-size width="150" height="50" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+-        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
+-      </item>
+-      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+-          <preferred-size width="150" height="50" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
+-          <preferred-size width="150" height="50" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+-          <preferred-size width="150" height="50" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+-          <preferred-size width="200" height="200" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+-        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+-          <preferred-size width="200" height="200" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+-        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
+-      </item>
+-      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
+-      </item>
+-      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+-        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
+-      </item>
+-      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
+-      </item>
+-      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+-        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
+-          <preferred-size width="-1" height="20" />
+-        </default-constraints>
+-      </item>
+-      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+-        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
+-      </item>
+-      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+-        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
+-      </item>
+-    </group>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: GuessGame/.idea/.gitignore
+===================================================================
+diff --git a/GuessGame/.idea/.gitignore b/GuessGame/.idea/.gitignore
+deleted file mode 100644
+--- a/GuessGame/.idea/.gitignore	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: GuessGame/.idea/modules.xml
+===================================================================
+diff --git a/GuessGame/.idea/modules.xml b/GuessGame/.idea/modules.xml
+deleted file mode 100644
+--- a/GuessGame/.idea/modules.xml	
++++ /dev/null	
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/GuessGame.iml" filepath="$PROJECT_DIR$/GuessGame.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: GuessGame/.idea/misc.xml
+===================================================================
+diff --git a/GuessGame/.idea/misc.xml b/GuessGame/.idea/misc.xml
+deleted file mode 100644
+--- a/GuessGame/.idea/misc.xml	
++++ /dev/null	
+@@ -1,9 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="JavadocGenerationManager">
+-    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Documents/JDK docs" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: JR Quests/.idea/.gitignore
+===================================================================
+diff --git a/JR Quests/.idea/.gitignore b/JR Quests/.idea/.gitignore
+deleted file mode 100644
+--- a/JR Quests/.idea/.gitignore	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: JR Quests/.idea/modules.xml
+===================================================================
+diff --git a/JR Quests/.idea/modules.xml b/JR Quests/.idea/modules.xml
+deleted file mode 100644
+--- a/JR Quests/.idea/modules.xml	
++++ /dev/null	
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/JR Quests.iml" filepath="$PROJECT_DIR$/JR Quests.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: JR Quests/.idea/misc.xml
+===================================================================
+diff --git a/JR Quests/.idea/misc.xml b/JR Quests/.idea/misc.xml
+deleted file mode 100644
+--- a/JR Quests/.idea/misc.xml	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: JavaRushTasks/.gitignore
+===================================================================
+diff --git a/JavaRushTasks/.gitignore b/JavaRushTasks/.gitignore
+deleted file mode 100644
+--- a/JavaRushTasks/.gitignore	
++++ /dev/null	
+@@ -1,26 +0,0 @@
+-#############
+-## Idea
+-#############
+-target/
+-.idea/
+-.idea
+-.repository/
+-*.iml
+-*.iws
+-*.jrtc
+-*.java
+-*.class
+-*.info
+-*.properties
+-*.jar
+-
+-/1.JavaSyntax/
+-/2.JavaCore/
+-/3.JavaMultithreading/
+-/4.JavaCollections/
+-/5.OnlineInternship/
+-/out/
+-/JavaRushPlugin.properties
+-/Instruction.png
+-/out.log
+-/out.log.*
