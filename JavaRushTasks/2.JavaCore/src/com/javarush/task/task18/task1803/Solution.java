@@ -1,11 +1,11 @@
-package com.javarush.task.task18.task1804;
+package com.javarush.task.task18.task1803;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
 /**
- * Find and print the rarest bytes in a file
+ * Find and print the most used bytes in a file
  */
 public class Solution {
     public static void main(String[] args) {
@@ -30,19 +30,21 @@ public class Solution {
 
     }
     private static void printRarestBytes(Map<Integer,Integer> bytesFromFile){
-        Optional<Map.Entry<Integer,Integer>> optionalMinValue = bytesFromFile.entrySet()
+        Optional<Map.Entry<Integer,Integer>> optionalMaxValue = bytesFromFile.entrySet()
                 .stream()
-                .min(Map.Entry.comparingByValue());
-        if(optionalMinValue.isEmpty()){
+                .max(Map.Entry.comparingByValue());
+        if(optionalMaxValue.isEmpty()){
             System.out.println("The file is empty");
         }
         else {
-            Integer minValue = optionalMinValue
+            Integer MaxValue = optionalMaxValue
                     .get()
                     .getValue();
             bytesFromFile.entrySet().stream()
-                    .filter(a -> a.getValue() == minValue)
+                    .filter(a -> a.getValue() == MaxValue)
                     .forEach(a -> System.out.print(a.getKey() + " "));
         }
     }
 }
+
+
